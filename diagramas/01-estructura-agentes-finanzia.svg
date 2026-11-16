@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 725" width="1200" height="725" style="font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#ffffff">
+  <rect x="0" y="0" width="1200" height="725" fill="#ffffff"/>
+
+  <text x="600" y="28" text-anchor="middle" font-size="17.5" font-weight="700" fill="#0f172a">Diagrama 1 · Estructura del sistema único de agentes de FinanzIA (Claude Code · Monorepo)</text>
+
+  <!-- Human Developer Node -->
+  <rect x="270" y="42" width="660" height="58" rx="10" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+  <text x="600" y="65" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f172a">Desarrollador humano (Equipo Grupo 6)</text>
+  <text x="600" y="85" text-anchor="middle" font-size="11.2" fill="#334155">Define y aprueba spec.md y plan.md · responde dudas de negocio · ejecuta /review-pr, axe DevTools y aprueba la PR</text>
+
+  <!-- Arrows Human <-> Orchestrator -->
+  <line x1="530" y1="100" x2="530" y2="142" stroke="#15803d" stroke-width="2.2"/>
+  <polygon points="530,150 524,140 536,140" fill="#15803d"/>
+  <text x="516" y="129" text-anchor="end" font-size="11" font-weight="600" fill="#15803d">solicitud + tasks.md aprobado ↓</text>
+
+  <line x1="670" y1="150" x2="670" y2="108" stroke="#1d4ed8" stroke-width="2.2"/>
+  <polygon points="670,100 664,110 676,110" fill="#1d4ed8"/>
+  <text x="684" y="129" text-anchor="start" font-size="11" font-weight="600" fill="#1d4ed8">↑ preguntas de alcance + informe final PR</text>
+
+  <!-- Orchestrator Node -->
+  <rect x="260" y="150" width="680" height="78" rx="10" fill="#14532d" stroke="#052e16" stroke-width="2"/>
+  <text x="600" y="173" text-anchor="middle" font-size="14.5" font-weight="700" fill="#ffffff">orquestador  (.claude/agents/orquestador.md · modelo: sonnet)</text>
+  <text x="600" y="193" text-anchor="middle" font-size="11.3" fill="#dcfce7">Coordina bloques secuenciales y paralelos · exige orden Red → Green · NO escribe código ni levanta servidores</text>
+  <text x="600" y="212" text-anchor="middle" font-size="10.8" fill="#bbf7d0">Toca solo: specs/*/tasks.md · tools: Read, Grep, Glob, Edit, AskUserQuestion, Agent(8 subagentes) · disallowed: Write, Bash</text>
+
+  <!-- Delegation label banner -->
+  <line x1="600" y1="228" x2="600" y2="239" stroke="#334155" stroke-width="2"/>
+  <rect x="305" y="239" width="590" height="24" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="600" y="255" text-anchor="middle" font-size="10.8" font-weight="600" fill="#1e293b">encargo aislado ↓  |  ↑ informe fijo (ESTADO · TAREAS · ARCHIVOS · EVIDENCIA · NECESITA · PREGUNTAS)</text>
+
+  <!-- Connector trunk to the 3 domain zones -->
+  <line x1="600" y1="263" x2="600" y2="278" stroke="#334155" stroke-width="2"/>
+  <line x1="205" y1="278" x2="995" y2="278" stroke="#334155" stroke-width="2"/>
+  <line x1="205" y1="278" x2="205" y2="292" stroke="#334155" stroke-width="2"/>
+  <polygon points="205,300 199,290 211,290" fill="#334155"/>
+  <line x1="600" y1="278" x2="600" y2="292" stroke="#334155" stroke-width="2"/>
+  <polygon points="600,300 594,290 606,290" fill="#334155"/>
+  <line x1="995" y1="278" x2="995" y2="292" stroke="#334155" stroke-width="2"/>
+  <polygon points="995,300 989,290 1001,290" fill="#334155"/>
+
+  <!-- ==================== ZONE 1: BACKEND ==================== -->
+  <rect x="20" y="300" width="370" height="352" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8"/>
+  <rect x="20" y="300" width="370" height="32" rx="10" fill="#dbeafe"/>
+  <text x="205" y="321" text-anchor="middle" font-size="12.8" font-weight="700" fill="#1e3a8a">Subagentes Backend (Python 3.13 + FastAPI)</text>
+
+  <!-- test-backend -->
+  <rect x="34" y="344" width="342" height="138" rx="8" fill="#ffffff" stroke="#60a5fa" stroke-width="1.5"/>
+  <circle cx="358" cy="362" r="7.5" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
+  <text x="46" y="365" font-size="12.5" font-weight="700" fill="#0f172a">test-backend · TDD Red y Cobertura</text>
+  <text x="46" y="384" font-size="10.8" fill="#334155">• Pruebas pytest desde criterios; confirma fallo Red</text>
+  <text x="46" y="401" font-size="10.8" fill="#334155">• Mide cobertura (pytest-cov ≥ 80 %) en backend/app/</text>
+  <text x="46" y="420" font-size="10.8" font-weight="700" fill="#1e40af">Toca: solo backend/tests/** (prohibido backend/app/**)</text>
+  <text x="46" y="438" font-size="10.3" fill="#475569">tools: Read, Grep, Glob, Edit, Write, Bash</text>
+  <text x="46" y="454" font-size="10.3" fill="#475569">disallowed: Agent, AskUserQuestion, WebFetch, WebSearch</text>
+  <text x="46" y="471" font-size="10.8" font-weight="600" fill="#0f172a">Modelo: sonnet (fixtures SQLite + reglas financieras)</text>
+
+  <!-- dev-backend -->
+  <rect x="34" y="496" width="342" height="142" rx="8" fill="#ffffff" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="46" y="517" font-size="12.5" font-weight="700" fill="#0f172a">dev-backend · TDD Green y Contrato API</text>
+  <text x="46" y="536" font-size="10.8" fill="#334155">• Código mínimo en routers/ → analytics.py → schemas.py</text>
+  <text x="46" y="553" font-size="10.8" fill="#334155">• Sincroniza docs/api-contracts.md · ejecuta ruff y pytest</text>
+  <text x="46" y="572" font-size="10.8" font-weight="700" fill="#1e40af">Toca: backend/app/**, docs/api-contracts.md (no tests/)</text>
+  <text x="46" y="590" font-size="10.3" fill="#475569">tools: Read, Grep, Glob, Edit, Write, Bash, mcp__context7__*</text>
+  <text x="46" y="606" font-size="10.3" fill="#475569">disallowed: Agent, AskUserQuestion, WebFetch, WebSearch</text>
+  <text x="46" y="623" font-size="10.8" font-weight="600" fill="#0f172a">Modelo: sonnet (codificación iterativa + velocidad/cuota)</text>
+
+  <!-- ==================== ZONE 2: SHARED / TRANSVERSAL ==================== -->
+  <rect x="404" y="300" width="392" height="352" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8"/>
+  <rect x="404" y="300" width="392" height="32" rx="10" fill="#f3e8ff"/>
+  <text x="600" y="321" text-anchor="middle" font-size="12.8" font-weight="700" fill="#581c87">Subagentes Transversales (Ambos: Backend + Frontend)</text>
+
+  <!-- arquitecto -->
+  <rect x="416" y="340" width="368" height="70" rx="7" fill="#ffffff" stroke="#c084fc" stroke-width="1.4"/>
+  <text x="426" y="358" font-size="11.8" font-weight="700" fill="#0f172a">arquitecto · Diseño Fase 0 (/speckit-plan) · opus</text>
+  <text x="426" y="374" font-size="10.4" fill="#334155">Opciones técnicas, contrato API↔UI e impacto en models.py (sin Alembic)</text>
+  <text x="426" y="390" font-size="10.2" font-weight="700" fill="#6b21a8">Solo lectura · tools: Read, Grep, Glob, Web*, mcp__context7__*</text>
+  <text x="426" y="404" font-size="10" fill="#475569">disallowed: Edit, Write, Bash, Agent, AskUserQuestion</text>
+
+  <!-- verificador-e2e -->
+  <rect x="416" y="418" width="368" height="72" rx="7" fill="#ffffff" stroke="#c084fc" stroke-width="1.4"/>
+  <circle cx="768" cy="434" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
+  <text x="426" y="436" font-size="11.8" font-weight="700" fill="#0f172a">verificador-e2e · Humo HTTP + Playwright · haiku</text>
+  <text x="426" y="452" font-size="10.4" fill="#334155">Levanta :8001–8003, :8000 y :5173 · claro/oscuro, 390/1280 px y errores</text>
+  <text x="426" y="468" font-size="10.2" font-weight="700" fill="#6b21a8">Solo lectura en repo · tools: Read, Grep, Glob, Bash, mcp__playwright__*</text>
+  <text x="426" y="482" font-size="10" fill="#475569">disallowed: Edit, Write, Agent, AskUserQuestion, WebFetch, WebSearch</text>
+
+  <!-- revisor-calidad -->
+  <rect x="416" y="498" width="368" height="72" rx="7" fill="#ffffff" stroke="#c084fc" stroke-width="1.4"/>
+  <circle cx="768" cy="514" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
+  <text x="426" y="516" font-size="11.8" font-weight="700" fill="#0f172a">revisor-calidad · Arquitectura, Smells y WCAG · opus</text>
+  <text x="426" y="532" font-size="10.4" fill="#334155">Audita capas, frontera IA, contrato JS sin TS y semántica; sin mutar en bucle</text>
+  <text x="426" y="548" font-size="10.2" font-weight="700" fill="#6b21a8">Solo lectura · tools: Read, Grep, Glob, Bash (solo git diff / git status)</text>
+  <text x="426" y="562" font-size="10" fill="#475569">disallowed: Edit, Write, Agent, AskUserQuestion, WebFetch, WebSearch</text>
+
+  <!-- auditor-convergencia -->
+  <rect x="416" y="578" width="368" height="62" rx="7" fill="#ffffff" stroke="#c084fc" stroke-width="1.4"/>
+  <circle cx="768" cy="594" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
+  <text x="426" y="596" font-size="11.8" font-weight="700" fill="#0f172a">auditor-convergencia · Cierre Spec y Contrato · sonnet</text>
+  <text x="426" y="612" font-size="10.4" fill="#334155">Contrasta spec, plan y api-contracts.md; comprueba services/ y .env intactos</text>
+  <text x="426" y="628" font-size="10.2" font-weight="700" fill="#6b21a8">Toca solo: specs/*/tasks.md · tools: Read, Grep, Glob, Edit, Bash</text>
+
+  <!-- ==================== ZONE 3: FRONTEND ==================== -->
+  <rect x="810" y="300" width="370" height="352" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.8"/>
+  <rect x="810" y="300" width="370" height="32" rx="10" fill="#ffedd5"/>
+  <text x="995" y="321" text-anchor="middle" font-size="12.8" font-weight="700" fill="#9a3412">Subagentes Frontend (React 18 + Vite 6 · JS)</text>
+
+  <!-- test-frontend -->
+  <rect x="824" y="344" width="342" height="138" rx="8" fill="#ffffff" stroke="#fb923c" stroke-width="1.5"/>
+  <circle cx="1148" cy="362" r="7.5" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
+  <text x="836" y="365" font-size="12.5" font-weight="700" fill="#0f172a">test-frontend · TDD Red UI y Cobertura</text>
+  <text x="836" y="384" font-size="10.8" fill="#334155">• Pruebas Vitest + RTL por rol contra api-contracts.md</text>
+  <text x="836" y="401" font-size="10.8" fill="#334155">• Confirma fallo Red y mide cobertura v8 ≥ 80 % en src/</text>
+  <text x="836" y="420" font-size="10.8" font-weight="700" fill="#c2410c">Toca: solo frontend/src/__tests__/** (no componentes)</text>
+  <text x="836" y="438" font-size="10.3" fill="#475569">tools: Read, Grep, Glob, Edit, Write, Bash</text>
+  <text x="836" y="454" font-size="10.3" fill="#475569">disallowed: Agent, AskUserQuestion, WebFetch, WebSearch</text>
+  <text x="836" y="471" font-size="10.8" font-weight="600" fill="#0f172a">Modelo: sonnet (contratos JSON y estados UI en español)</text>
+
+  <!-- dev-frontend -->
+  <rect x="824" y="496" width="342" height="142" rx="8" fill="#ffffff" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="836" y="517" font-size="12.5" font-weight="700" fill="#0f172a">dev-frontend · TDD Green JSX y Tokens CSS</text>
+  <text x="836" y="536" font-size="10.8" fill="#334155">• Implementa src/api.js, componentes JSX y variables CSS</text>
+  <text x="836" y="553" font-size="10.8" fill="#334155">• Aplica vercel-react-best-practices · eslint + npm run build</text>
+  <text x="836" y="572" font-size="10.8" font-weight="700" fill="#c2410c">Toca: frontend/src/** salvo __tests__/** (no vite.config.js)</text>
+  <text x="836" y="590" font-size="10.3" fill="#475569">tools: Read, Grep, Glob, Edit, Write, Bash, mcp__context7__*</text>
+  <text x="836" y="606" font-size="10.3" fill="#475569">disallowed: Agent, AskUserQuestion, WebFetch, WebSearch</text>
+  <text x="836" y="623" font-size="10.8" font-weight="600" fill="#0f172a">Modelo: sonnet (componentes limpios sin auto-revisión visual)</text>
+
+  <!-- Bottom Legend & Hard Security Rules -->
+  <rect x="20" y="664" width="1160" height="48" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.4"/>
+  <circle cx="42" cy="688" r="7.5" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
+  <text x="56" y="692" font-size="11.2" font-weight="700" fill="#0f172a">Punto de control de calidad</text>
+  <text x="238" y="683" font-size="10.8" fill="#334155">• Aislamiento estricto: ningún subagente tiene Agent ni AskUserQuestion (no anidan ni conversan entre sí; todo pasa por el orquestador).</text>
+  <text x="238" y="701" font-size="10.8" fill="#334155">• Candados globales en .claude/settings.json: CLAUDE_CODE_FORK_SUBAGENT=0 y permissions.deny sobre .env*, docker-compose.yml y services/**.</text>
+</svg>
