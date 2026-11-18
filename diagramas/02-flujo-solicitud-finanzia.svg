@@ -1,192 +1,201 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" style="font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#ffffff">
-  <rect x="0" y="0" width="1200" height="680" fill="#ffffff"/>
-  <text x="600" y="28" text-anchor="middle" font-size="17.5" font-weight="700" fill="#0f172a">Diagrama 2 · Flujo de una solicitud en FinanzIA (TDD Backend/Frontend, Puertas de Calidad y Límites de Bucle)</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 680" width="1120" height="680" font-family="Helvetica, Arial, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#333333"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#b85450"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2d7600"/>
+    </marker>
+  </defs>
+  <rect width="1120" height="680" fill="#ffffff"/>
 
-  <!-- ==================== ROW 1 ==================== -->
-  <rect x="24" y="48" width="245" height="78" rx="9" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
-  <text x="36" y="69" font-size="12.2" font-weight="700" fill="#14532d">1. Desarrollador (humano)</text>
-  <text x="36" y="87" font-size="10.8" fill="#1e293b">Crea rama feat/… y redacta spec.md</text>
-  <text x="36" y="103" font-size="10.8" fill="#1e293b">(/speckit-specify + entrevista)</text>
-  <text x="36" y="118" font-size="10.3" font-weight="700" fill="#15803d">Decide alcance y criterios Given/When/Then</text>
+  <!-- ROW 1: Diseño y planificación -->
+  <!-- Step 1 -->
+  <rect x="24" y="20" width="235" height="76" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.6"/>
+  <text x="36" y="41" font-size="12.5" font-weight="bold" fill="#1a1a1a">1. Desarrollador (humano)</text>
+  <text x="36" y="59" font-size="11" fill="#333333">Crea rama feat/... y redacta spec.md</text>
+  <text x="36" y="76" font-size="11" fill="#333333">con criterios de aceptación claros</text>
 
-  <line x1="269" y1="87" x2="298" y2="87" stroke="#334155" stroke-width="2"/>
-  <polygon points="307,87 297,82 297,92" fill="#334155"/>
+  <line x1="259" y1="58" x2="287" y2="58" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <rect x="307" y="48" width="265" height="78" rx="9" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8"/>
-  <text x="319" y="69" font-size="12.2" font-weight="700" fill="#581c87">2. arquitecto (opus · solo lectura)</text>
-  <text x="319" y="87" font-size="10.8" fill="#1e293b">Investiga en Context7, propone contrato</text>
-  <text x="319" y="103" font-size="10.8" fill="#1e293b">API↔UI y evalúa impacto en models.py</text>
-  <text x="319" y="118" font-size="10.3" font-weight="700" fill="#6b21a8">Fase 0 de /speckit-plan</text>
+  <!-- Step 2 -->
+  <rect x="289" y="20" width="245" height="76" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.6"/>
+  <text x="301" y="41" font-size="12.5" font-weight="bold" fill="#1a1a1a">2. arquitecto (opus)</text>
+  <text x="301" y="59" font-size="11" fill="#333333">Consulta Context7, propone contrato</text>
+  <text x="301" y="76" font-size="11" fill="#333333">en api-contracts.md y alerta SQL</text>
 
-  <line x1="572" y1="87" x2="601" y2="87" stroke="#334155" stroke-width="2"/>
-  <polygon points="610,87 600,82 600,92" fill="#334155"/>
+  <line x1="534" y1="58" x2="562" y2="58" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <rect x="610" y="48" width="265" height="78" rx="9" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
-  <circle cx="858" cy="63" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
-  <text x="622" y="69" font-size="12.2" font-weight="700" fill="#14532d">3. Desarrollador aprueba diseño</text>
-  <text x="622" y="87" font-size="10.8" fill="#1e293b">Resuelve dudas técnicas, aprueba plan.md,</text>
-  <text x="622" y="103" font-size="10.8" fill="#1e293b">genera tasks.md y corre /speckit-analyze</text>
-  <text x="622" y="118" font-size="10.3" font-weight="700" fill="#15803d">Puerta previa antes de escribir código</text>
+  <!-- Step 3 -->
+  <rect x="564" y="20" width="255" height="76" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.6"/>
+  <rect x="742" y="27" width="68" height="17" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+  <text x="776" y="39" text-anchor="middle" font-size="9.8" font-weight="bold" fill="#5c4800">Control</text>
+  <text x="576" y="41" font-size="12.5" font-weight="bold" fill="#1a1a1a">3. Desarrollador aprueba</text>
+  <text x="576" y="59" font-size="11" fill="#333333">Resuelve dudas, aprueba plan.md</text>
+  <text x="576" y="76" font-size="11" fill="#333333">y tasks.md antes de tocar código</text>
 
-  <line x1="875" y1="87" x2="904" y2="87" stroke="#334155" stroke-width="2"/>
-  <polygon points="913,87 903,82 903,92" fill="#334155"/>
+  <line x1="819" y1="58" x2="847" y2="58" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <rect x="913" y="48" width="263" height="78" rx="9" fill="#14532d" stroke="#052e16" stroke-width="2"/>
-  <text x="925" y="69" font-size="12.2" font-weight="700" fill="#ffffff">4. orquestador (sonnet)</text>
-  <text x="925" y="87" font-size="10.8" fill="#dcfce7">Toma historia USx de tasks.md y delega</text>
-  <text x="925" y="103" font-size="10.8" fill="#dcfce7">exigiendo siempre Red antes que Green</text>
-  <text x="925" y="118" font-size="10.3" font-weight="700" fill="#bbf7d0">Bloques [P] disjuntos corren en paralelo</text>
+  <!-- Step 4 -->
+  <rect x="849" y="20" width="247" height="76" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.8"/>
+  <text x="861" y="41" font-size="12.5" font-weight="bold" fill="#1a1a1a">4. orquestador (sonnet)</text>
+  <text x="861" y="59" font-size="11" fill="#222222">Toma cada historia de tasks.md</text>
+  <text x="861" y="76" font-size="11" fill="#222222">y delega Red → Green por stack</text>
 
-  <!-- Routing from Step 4 down into Backend & Frontend Tracks -->
-  <path d="M 1044 126 L 1044 152 L 54 152 L 54 330 L 62 330" fill="none" stroke="#334155" stroke-width="2"/>
-  <line x1="54" y1="226" x2="62" y2="226" stroke="#334155" stroke-width="2"/>
-  <polygon points="70,226 60,221 60,231" fill="#334155"/>
-  <polygon points="70,330 60,325 60,335" fill="#334155"/>
-  <text x="550" y="145" text-anchor="middle" font-size="10.8" font-weight="600" fill="#334155">Delegación por historia (Backend primero si crea/cambia contrato; en paralelo [P] si el contrato ya está fijado)</text>
+  <!-- Connector from Step 4 to Backend & Frontend rows -->
+  <path d="M 972 96 L 972 122 L 80 122 L 80 324" fill="none" stroke="#333333" stroke-width="1.5"/>
+  <line x1="80" y1="206" x2="112" y2="206" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <line x1="80" y1="324" x2="112" y2="324" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <rect x="270" y="111" width="520" height="21" rx="4" fill="#f5f5f5" stroke="#999999" stroke-width="1"/>
+  <text x="530" y="125" text-anchor="middle" font-size="10.8" fill="#222222">Por historia: primero Backend si cambia el contrato API; en paralelo [P] si el contrato ya existe</text>
 
-  <!-- ==================== ROW 2: BACKEND & FRONTEND TDD TRACKS ==================== -->
-  <rect x="70" y="170" width="662" height="94" rx="9" fill="#eff6ff" stroke="#60a5fa" stroke-width="1.5"/>
-  <text x="84" y="188" font-size="11.3" font-weight="700" fill="#1e3a8a">Rama Backend (backend/** + docs/api-contracts.md)</text>
+  <!-- ROW 2A: Backend container -->
+  <rect x="100" y="146" width="585" height="106" rx="6" fill="#f5f9ff" stroke="#6c8ebf" stroke-width="1.4" stroke-dasharray="5,3"/>
+  <text x="114" y="164" font-size="11.5" font-weight="bold" fill="#1f4e79">Rama Backend (backend/** + docs/api-contracts.md)</text>
 
-  <rect x="84" y="196" width="295" height="58" rx="7" fill="#ffffff" stroke="#3b82f6" stroke-width="1.4"/>
-  <circle cx="364" cy="210" r="6.8" fill="#84cc16" stroke="#3f6212" stroke-width="1.1"/>
-  <text x="94" y="214" font-size="11.8" font-weight="700" fill="#0f172a">5a. test-backend (Red)</text>
-  <text x="94" y="231" font-size="10.5" fill="#334155">Escribe backend/tests/test_*.py + matriz</text>
-  <text x="94" y="246" font-size="10.3" font-weight="700" fill="#1d4ed8">Confirma fallo esperado en pytest</text>
+  <rect x="114" y="172" width="265" height="68" rx="5" fill="#ffffff" stroke="#6c8ebf" stroke-width="1.5"/>
+  <rect x="307" y="178" width="64" height="16" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+  <text x="339" y="190" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#5c4800">Control</text>
+  <text x="124" y="191" font-size="12" font-weight="bold" fill="#1a1a1a">5a. test-backend (Red)</text>
+  <text x="124" y="209" font-size="10.8" fill="#333333">Crea test_*.py desde spec.md</text>
+  <text x="124" y="225" font-size="10.8" font-weight="bold" fill="#1f4e79">Confirma que pytest falla (Red)</text>
 
-  <line x1="379" y1="225" x2="408" y2="225" stroke="#334155" stroke-width="2"/>
-  <polygon points="417,225 407,220 407,230" fill="#334155"/>
+  <line x1="379" y1="206" x2="405" y2="206" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <rect x="417" y="196" width="301" height="58" rx="7" fill="#ffffff" stroke="#3b82f6" stroke-width="1.4"/>
-  <circle cx="703" cy="210" r="6.8" fill="#84cc16" stroke="#3f6212" stroke-width="1.1"/>
-  <text x="427" y="214" font-size="11.8" font-weight="700" fill="#0f172a">5b. dev-backend (Green + Refactor)</text>
-  <text x="427" y="231" font-size="10.5" fill="#334155">Código mínimo + actualiza api-contracts.md</text>
-  <text x="427" y="246" font-size="10.3" font-weight="700" fill="#1d4ed8">ruff + test_architecture.py + pytest en verde</text>
+  <rect x="407" y="172" width="264" height="68" rx="5" fill="#ffffff" stroke="#6c8ebf" stroke-width="1.5"/>
+  <rect x="599" y="178" width="64" height="16" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+  <text x="631" y="190" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#5c4800">Control</text>
+  <text x="417" y="191" font-size="12" font-weight="bold" fill="#1a1a1a">5b. dev-backend (Green)</text>
+  <text x="417" y="209" font-size="10.8" fill="#333333">Implementa y actualiza api-contracts.md</text>
+  <text x="417" y="225" font-size="10.8" font-weight="bold" fill="#1f4e79">ruff + test_architecture + pytest OK</text>
 
-  <!-- Frontend Track -->
-  <rect x="70" y="274" width="662" height="94" rx="9" fill="#fff7ed" stroke="#fb923c" stroke-width="1.5"/>
-  <text x="84" y="292" font-size="11.3" font-weight="700" fill="#9a3412">Rama Frontend (frontend/src/** · JavaScript JSX sin TypeScript)</text>
+  <!-- ROW 2B: Frontend container -->
+  <rect x="100" y="264" width="585" height="106" rx="6" fill="#fffaf2" stroke="#d79b00" stroke-width="1.4" stroke-dasharray="5,3"/>
+  <text x="114" y="282" font-size="11.5" font-weight="bold" fill="#8a4b00">Rama Frontend (frontend/src/** · JavaScript sin TypeScript)</text>
 
-  <rect x="84" y="300" width="295" height="58" rx="7" fill="#ffffff" stroke="#f97316" stroke-width="1.4"/>
-  <circle cx="364" cy="314" r="6.8" fill="#84cc16" stroke="#3f6212" stroke-width="1.1"/>
-  <text x="94" y="318" font-size="11.8" font-weight="700" fill="#0f172a">6a. test-frontend (Red)</text>
-  <text x="94" y="335" font-size="10.5" fill="#334155">Pruebas Vitest + RTL contra api-contracts.md</text>
-  <text x="94" y="350" font-size="10.3" font-weight="700" fill="#c2410c">Confirma fallo esperado en npm test</text>
+  <rect x="114" y="290" width="265" height="68" rx="5" fill="#ffffff" stroke="#d79b00" stroke-width="1.5"/>
+  <rect x="307" y="296" width="64" height="16" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+  <text x="339" y="308" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#5c4800">Control</text>
+  <text x="124" y="309" font-size="12" font-weight="bold" fill="#1a1a1a">6a. test-frontend (Red)</text>
+  <text x="124" y="327" font-size="10.8" fill="#333333">Pruebas Vitest + RTL según contrato</text>
+  <text x="124" y="343" font-size="10.8" font-weight="bold" fill="#8a4b00">Confirma que npm test falla (Red)</text>
 
-  <line x1="379" y1="329" x2="408" y2="329" stroke="#334155" stroke-width="2"/>
-  <polygon points="417,329 407,324 407,334" fill="#334155"/>
+  <line x1="379" y1="324" x2="405" y2="324" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <rect x="417" y="300" width="301" height="58" rx="7" fill="#ffffff" stroke="#f97316" stroke-width="1.4"/>
-  <circle cx="703" cy="314" r="6.8" fill="#84cc16" stroke="#3f6212" stroke-width="1.1"/>
-  <text x="427" y="318" font-size="11.8" font-weight="700" fill="#0f172a">6b. dev-frontend (Green + Refactor)</text>
-  <text x="427" y="335" font-size="10.5" fill="#334155">src/api.js + JSX + variables CSS (0 hex)</text>
-  <text x="427" y="350" font-size="10.3" font-weight="700" fill="#c2410c">eslint (jsx-a11y) + vitest + npm run build</text>
+  <rect x="407" y="290" width="264" height="68" rx="5" fill="#ffffff" stroke="#d79b00" stroke-width="1.5"/>
+  <rect x="599" y="296" width="64" height="16" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+  <text x="631" y="308" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#5c4800">Control</text>
+  <text x="417" y="309" font-size="12" font-weight="bold" fill="#1a1a1a">6b. dev-frontend (Green)</text>
+  <text x="417" y="327" font-size="10.8" fill="#333333">api.js + JSX + variables CSS (sin hex)</text>
+  <text x="417" y="343" font-size="10.8" font-weight="bold" fill="#8a4b00">eslint (jsx-a11y) + vitest + build OK</text>
 
-  <!-- Merge Backend & Frontend into Step 7 -->
-  <path d="M 732 225 L 758 225 L 758 220 L 779 220" fill="none" stroke="#334155" stroke-width="2"/>
-  <path d="M 732 329 L 758 329 L 758 220" fill="none" stroke="#334155" stroke-width="2"/>
-  <polygon points="788,220 778,215 778,225" fill="#334155"/>
+  <!-- BOTH 5b and 6b merge cleanly into Step 7! -->
+  <path d="M 671 206 L 708 206 L 708 200 L 736 200" fill="none" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <path d="M 671 324 L 708 324 L 708 200" fill="none" stroke="#333333" stroke-width="1.5"/>
 
-  <!-- Step 7: E2E + Coverage -->
-  <rect x="788" y="172" width="388" height="88" rx="9" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8"/>
-  <circle cx="1158" cy="188" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
-  <text x="800" y="192" font-size="12" font-weight="700" fill="#581c87">7. verificador-e2e (haiku) + Cobertura ≥ 80 %</text>
-  <text x="800" y="210" font-size="10.6" fill="#1e293b">• Humo HTTP (:8000) + Playwright MCP (:5173 claro/oscuro,</text>
-  <text x="800" y="226" font-size="10.6" fill="#1e293b">  390/1280 px, sincronizar, caída backend con role="alert")</text>
-  <text x="800" y="244" font-size="10.5" font-weight="700" fill="#6b21a8">• test-backend y test-frontend miden cobertura ≥ 80 %</text>
+  <!-- Step 7: verificador-e2e + cobertura -->
+  <rect x="738" y="150" width="358" height="98" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.6"/>
+  <rect x="1012" y="158" width="74" height="17" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+  <text x="1049" y="170" text-anchor="middle" font-size="9.8" font-weight="bold" fill="#5c4800">Control E2E</text>
+  <text x="750" y="171" font-size="12.5" font-weight="bold" fill="#1a1a1a">7. verificador-e2e (haiku) + Cobertura</text>
+  <text x="750" y="190" font-size="10.8" fill="#333333">• Humo HTTP (:8000) y Playwright MCP (:5173)</text>
+  <text x="750" y="207" font-size="10.8" fill="#333333">• Claro/oscuro, 390/1280 px, alerta si cae API</text>
+  <text x="750" y="224" font-size="10.8" font-weight="bold" fill="#5b3270">• Cobertura ≥ 80 % en test-backend y test-frontend</text>
 
-  <line x1="982" y1="260" x2="982" y2="277" stroke="#334155" stroke-width="2"/>
-  <polygon points="982,286 977,276 987,276" fill="#334155"/>
+  <line x1="917" y1="248" x2="917" y2="270" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <!-- Step 8: Quality Reviewer -->
-  <rect x="788" y="286" width="388" height="82" rx="9" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8"/>
-  <circle cx="1158" cy="302" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
-  <text x="800" y="306" font-size="12" font-weight="700" fill="#581c87">8. revisor-calidad (opus · solo lectura)</text>
-  <text x="800" y="324" font-size="10.6" fill="#1e293b">Revisa reglas financieras (duplicados/transferencias),</text>
-  <text x="800" y="340" font-size="10.6" fill="#1e293b">frontera IA, contrato JSON sin TS, test smells y WCAG</text>
-  <text x="800" y="356" font-size="10.5" font-weight="700" fill="#6b21a8">Lista vistas para revisión humana en axe DevTools</text>
+  <!-- Step 8: revisor-calidad -->
+  <rect x="738" y="272" width="358" height="98" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.6"/>
+  <rect x="1012" y="280" width="74" height="17" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+  <text x="1049" y="292" text-anchor="middle" font-size="9.8" font-weight="bold" fill="#5c4800">Control PR</text>
+  <text x="750" y="293" font-size="12.5" font-weight="bold" fill="#1a1a1a">8. revisor-calidad (opus · solo lectura)</text>
+  <text x="750" y="312" font-size="10.8" fill="#333333">• Reglas financieras (duplicados y transferencias)</text>
+  <text x="750" y="329" font-size="10.8" fill="#333333">• Contrato JSON sin TS, test smells y WCAG 2.2 AA</text>
+  <text x="750" y="346" font-size="10.8" font-weight="bold" fill="#5b3270">• Anota vistas para chequeo humano con axe DevTools</text>
 
-  <!-- ==================== ROW 3: DECISION DIAMONDS, BOUNDED LOOPS & FINAL PR/CI GATE ==================== -->
-  <path d="M 982 368 L 982 394 L 235 394 L 235 413" fill="none" stroke="#334155" stroke-width="2"/>
-  <polygon points="235,422 230,412 240,412" fill="#334155"/>
+  <!-- Connector from Step 8 down to Decision 1 -->
+  <path d="M 917 370 L 917 392 L 245 392 L 245 412" fill="none" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <!-- Diamond 1: Story Gate -->
-  <polygon points="235,422 375,472 235,522 95,472" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
-  <circle cx="235" cy="438" r="6.2" fill="#84cc16" stroke="#3f6212" stroke-width="1"/>
-  <text x="235" y="467" text-anchor="middle" font-size="11.2" font-weight="700" fill="#713f12">¿Pasan pruebas,</text>
-  <text x="235" y="482" text-anchor="middle" font-size="11.2" font-weight="700" fill="#713f12">cobertura ≥ 80 % y</text>
-  <text x="235" y="497" text-anchor="middle" font-size="11.2" font-weight="700" fill="#713f12">sin hallazgos?</text>
+  <!-- ROW 3: Decisiones, bucles acotados y aprobación final -->
+  <!-- Diamond 1 (generous width 290, height 96 so text fits comfortably!) -->
+  <polygon points="245,414 390,462 245,510 100,462" fill="#fff2cc" stroke="#d6b656" stroke-width="1.8"/>
+  <text x="245" y="456" text-anchor="middle" font-size="11.2" font-weight="bold" fill="#1a1a1a">¿Pruebas, cobertura ≥ 80 %</text>
+  <text x="245" y="472" text-anchor="middle" font-size="11.2" font-weight="bold" fill="#1a1a1a">y revisión sin hallazgos?</text>
 
-  <!-- Loop back from Diamond 1 (NO: max 2 turns) -->
-  <path d="M 95 472 L 28 472 L 28 225 L 61 225" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3"/>
-  <polygon points="70,225 60,220 60,230" fill="#dc2626"/>
-  <line x1="235" y1="522" x2="235" y2="532" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4,3"/>
-  <rect x="24" y="532" width="408" height="58" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
-  <text x="34" y="550" font-size="10.4" font-weight="700" fill="#991b1b">no → dev-* o test-* corrige (máximo 2 vueltas por historia)</text>
-  <text x="34" y="566" font-size="10.1" fill="#7f1d1d">Si tras 2 vueltas persiste el fallo o surge duda de negocio, el</text>
-  <text x="34" y="581" font-size="10.1" font-weight="600" fill="#7f1d1d">orquestador SE DETIENE y pregunta al Desarrollador.</text>
+  <!-- Loop 1: NO back to Backend/Frontend via left rail -->
+  <path d="M 100 462 L 42 462 L 42 206 L 78 206" fill="none" stroke="#b85450" stroke-width="1.6" stroke-dasharray="5,3" marker-end="url(#arrRed)"/>
+  <text x="72" y="454" text-anchor="middle" font-size="11" font-weight="bold" fill="#b85450">no</text>
 
-  <!-- Yes from Diamond 1 -> Auditor Convergencia -->
-  <line x1="375" y1="472" x2="435" y2="472" stroke="#15803d" stroke-width="2"/>
-  <polygon points="444,472 434,467 434,477" fill="#15803d"/>
-  <text x="405" y="464" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">sí</text>
+  <!-- Stop box for Loop 1 -->
+  <rect x="96" y="524" width="300" height="72" rx="5" fill="#f8cecc" stroke="#b85450" stroke-width="1.3"/>
+  <line x1="245" y1="510" x2="245" y2="524" stroke="#b85450" stroke-width="1.3" stroke-dasharray="3,2"/>
+  <text x="108" y="543" font-size="10.8" font-weight="bold" fill="#7a1c18">Bucle acotado: máx. 2 vueltas por historia</text>
+  <text x="108" y="560" font-size="10.5" fill="#333333">Corrige dev-* o test-*. Si tras 2 vueltas sigue fallando</text>
+  <text x="108" y="576" font-size="10.5" fill="#333333">o hay duda de negocio, se detiene y pregunta al humano.</text>
 
-  <!-- Step 9: Auditor Convergencia -->
-  <rect x="444" y="432" width="246" height="80" rx="9" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8"/>
-  <circle cx="673" cy="448" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
-  <text x="456" y="453" font-size="11.8" font-weight="700" fill="#581c87">9. auditor-convergencia</text>
-  <text x="456" y="470" font-size="10.5" fill="#1e293b">Contrasta spec, plan, tasks y</text>
-  <text x="456" y="485" font-size="10.5" fill="#1e293b">api-contracts.md · verifica que</text>
-  <text x="456" y="500" font-size="10.5" font-weight="700" fill="#6b21a8">services/** y .env sigan intactos</text>
+  <!-- Diamond 1 YES -> Step 9 -->
+  <line x1="390" y1="462" x2="432" y2="462" stroke="#2d7600" stroke-width="1.6" marker-end="url(#arrGreen)"/>
+  <text x="410" y="454" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d7600">sí</text>
 
-  <line x1="690" y1="472" x2="714" y2="472" stroke="#334155" stroke-width="2"/>
-  <polygon points="723,472 713,467 713,477" fill="#334155"/>
+  <!-- Step 9: auditor-convergencia -->
+  <rect x="434" y="424" width="212" height="76" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.6"/>
+  <text x="445" y="445" font-size="12" font-weight="bold" fill="#1a1a1a">9. auditor-convergencia</text>
+  <text x="445" y="463" font-size="10.6" fill="#333333">Coteja spec, plan, tasks y contrato;</text>
+  <text x="445" y="479" font-size="10.6" fill="#333333">verifica services/** y .env intactos</text>
 
-  <!-- Diamond 2: Converged? -->
-  <polygon points="810,426 897,472 810,518 723,472" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
-  <text x="810" y="469" text-anchor="middle" font-size="11.2" font-weight="700" fill="#713f12">¿Converge</text>
-  <text x="810" y="484" text-anchor="middle" font-size="11.2" font-weight="700" fill="#713f12">todo?</text>
+  <line x1="646" y1="462" x2="674" y2="462" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)"/>
 
-  <!-- Loop from Diamond 2 (max 2 vueltas) -->
-  <line x1="810" y1="518" x2="810" y2="532" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4,3"/>
-  <rect x="444" y="532" width="478" height="58" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
-  <text x="454" y="550" font-size="10.4" font-weight="700" fill="#991b1b">no → añade Fase Convergencia en tasks.md y delega (máx. 2 vueltas)</text>
-  <text x="454" y="566" font-size="10.1" fill="#7f1d1d">Si una vuelta repite las mismas brechas sin progreso, el orquestador</text>
-  <text x="454" y="581" font-size="10.1" font-weight="600" fill="#7f1d1d">SE DETIENE y escala la decisión al Desarrollador.</text>
+  <!-- Diamond 2: ¿Converge todo? -->
+  <polygon points="756,418 838,462 756,506 674,462" fill="#fff2cc" stroke="#d6b656" stroke-width="1.8"/>
+  <text x="756" y="458" text-anchor="middle" font-size="11.2" font-weight="bold" fill="#1a1a1a">¿Converge</text>
+  <text x="756" y="473" text-anchor="middle" font-size="11.2" font-weight="bold" fill="#1a1a1a">todo?</text>
 
-  <!-- Yes from Diamond 2 -> Final Step 10 Human + CI Gate -->
-  <line x1="897" y1="472" x2="931" y2="472" stroke="#15803d" stroke-width="2"/>
-  <polygon points="940,472 930,467 930,477" fill="#15803d"/>
-  <text x="915" y="464" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">sí</text>
+  <!-- Loop 2: NO adds convergence tasks and returns to orquestador (right outer rail -> Step 4) -->
+  <line x1="756" y1="506" x2="756" y2="524" stroke="#b85450" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrRed)"/>
+  <text x="770" y="519" font-size="10.8" font-weight="bold" fill="#b85450">no</text>
 
-  <rect x="940" y="420" width="236" height="170" rx="9" fill="#f0fdf4" stroke="#15803d" stroke-width="2"/>
-  <circle cx="1158" cy="437" r="7" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
-  <text x="952" y="441" font-size="11.8" font-weight="700" fill="#14532d">10. Desarrollador + CI → main</text>
-  <text x="952" y="460" font-size="10.4" fill="#1e293b">1) /mutacion-backend (opc. local)</text>
-  <text x="952" y="477" font-size="10.4" fill="#1e293b">2) /review-pr + axe DevTools</text>
-  <text x="952" y="494" font-size="10.4" fill="#1e293b">3) Abre Pull Request hacia main</text>
-  <text x="952" y="513" font-size="10.4" font-weight="700" fill="#14532d">4) GitHub Actions CI bloqueante:</text>
-  <text x="952" y="530" font-size="10.1" fill="#334155">   • calidad-backend + calidad-frontend</text>
-  <text x="952" y="546" font-size="10.1" fill="#334155">   • mutacion-backend (informativo)</text>
-  <text x="952" y="566" font-size="10.4" font-weight="700" fill="#15803d">5) Aprobación humana y Merge</text>
+  <rect x="434" y="524" width="388" height="72" rx="5" fill="#f8cecc" stroke="#b85450" stroke-width="1.3"/>
+  <text x="446" y="543" font-size="10.8" font-weight="bold" fill="#7a1c18">Añade tareas de Convergencia y vuelve al paso 4 (máx. 2 vueltas)</text>
+  <text x="446" y="560" font-size="10.5" fill="#333333">Si una vuelta repite las mismas brechas sin avance, el orquestador</text>
+  <text x="446" y="576" font-size="10.5" fill="#333333">se detiene de inmediato y pide decisión al Desarrollador.</text>
+  <!-- Explicit dashed return path from convergence box back up to Step 4! -->
+  <path d="M 822 560 L 1108 560 L 1108 58 L 1098 58" fill="none" stroke="#b85450" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrRed)"/>
 
-  <!-- Legend Bar -->
-  <rect x="24" y="618" width="1152" height="44" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.4"/>
-  <rect x="40" y="631" width="18" height="18" rx="4" fill="#f0fdf4" stroke="#15803d" stroke-width="1.8"/>
-  <text x="65" y="644" font-size="11" font-weight="600" fill="#0f172a">Decisión humana</text>
+  <!-- Diamond 2 YES -> Step 10 -->
+  <line x1="838" y1="462" x2="872" y2="462" stroke="#2d7600" stroke-width="1.6" marker-end="url(#arrGreen)"/>
+  <text x="855" y="454" text-anchor="middle" font-size="11" font-weight="bold" fill="#2d7600">sí</text>
 
-  <rect x="195" y="631" width="18" height="18" rx="4" fill="#14532d" stroke="#052e16" stroke-width="1.8"/>
-  <text x="220" y="644" font-size="11" font-weight="600" fill="#0f172a">Orquestador</text>
+  <!-- Step 10: Desarrollador + CI -> main -->
+  <rect x="874" y="408" width="222" height="136" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.8"/>
+  <text x="885" y="428" font-size="12" font-weight="bold" fill="#1a1a1a">10. Desarrollador + CI → main</text>
+  <text x="885" y="446" font-size="10.5" fill="#222222">1) /mutacion-backend (opc. local)</text>
+  <text x="885" y="462" font-size="10.5" fill="#222222">2) /review-pr + axe DevTools</text>
+  <text x="885" y="478" font-size="10.5" fill="#222222">3) Abre Pull Request hacia main</text>
+  <text x="885" y="495" font-size="10.5" font-weight="bold" fill="#1e4620">4) GitHub Actions CI bloqueante</text>
+  <text x="893" y="510" font-size="10" fill="#333333">(calidad-backend + calidad-frontend)</text>
+  <text x="885" y="528" font-size="10.5" font-weight="bold" fill="#1e4620">5) Aprobación humana y Merge</text>
 
-  <rect x="330" y="631" width="18" height="18" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.6"/>
-  <text x="355" y="644" font-size="11" font-weight="600" fill="#0f172a">Subagente Backend</text>
+  <!-- Legend bar at bottom -->
+  <rect x="24" y="618" width="1072" height="44" rx="5" fill="#f5f5f5" stroke="#999999" stroke-width="1"/>
+  <rect x="44" y="631" width="18" height="16" rx="3" fill="#d5e8d4" stroke="#82b366" stroke-width="1.4"/>
+  <text x="68" y="643" font-size="11" fill="#222222">Desarrollador (humano)</text>
 
-  <rect x="500" y="631" width="18" height="18" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1.6"/>
-  <text x="525" y="644" font-size="11" font-weight="600" fill="#0f172a">Subagente Frontend</text>
+  <rect x="228" y="631" width="18" height="16" rx="3" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+  <text x="252" y="643" font-size="11" fill="#222222">Orquestador</text>
 
-  <rect x="675" y="631" width="18" height="18" rx="4" fill="#faf5ff" stroke="#9333ea" stroke-width="1.6"/>
-  <text x="700" y="644" font-size="11" font-weight="600" fill="#0f172a">Subagente Transversal</text>
+  <rect x="352" y="631" width="18" height="16" rx="3" fill="#ffffff" stroke="#6c8ebf" stroke-width="1.4"/>
+  <text x="376" y="643" font-size="11" fill="#222222">Subagente Backend</text>
 
-  <circle cx="872" cy="640" r="7.5" fill="#84cc16" stroke="#3f6212" stroke-width="1.2"/>
-  <text x="887" y="644" font-size="11" font-weight="600" fill="#0f172a">Punto de control / Puerta de calidad</text>
+  <rect x="518" y="631" width="18" height="16" rx="3" fill="#ffffff" stroke="#d79b00" stroke-width="1.4"/>
+  <text x="542" y="643" font-size="11" fill="#222222">Subagente Frontend</text>
+
+  <rect x="692" y="631" width="18" height="16" rx="3" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.4"/>
+  <text x="716" y="643" font-size="11" fill="#222222">Subagente Transversal</text>
+
+  <rect x="880" y="631" width="44" height="16" rx="3" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+  <text x="902" y="643" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#5c4800">Control</text>
+  <text x="932" y="643" font-size="11" fill="#222222">Punto de control</text>
 </svg>

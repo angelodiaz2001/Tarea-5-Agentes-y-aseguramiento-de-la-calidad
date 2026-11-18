@@ -12,10 +12,10 @@
 
 | Archivo | Descripción |
 |---|---|
-| [`Taller5_Grupo6_FinanzIA.pdf`](Taller5_Grupo6_FinanzIA.pdf) | **Documento oficial de entrega para Q10** (5 páginas, incluye tabla de agentes, diagramas vectoriales, aseguramiento de calidad y diferencias con el sistema de referencia). |
-| [`docs/sistema-agentes-finanzia.md`](docs/sistema-agentes-finanzia.md) | Versión en Markdown de las cuatro secciones del diseño. |
-| [`diagramas/01-estructura-agentes-finanzia.png`](diagramas/01-estructura-agentes-finanzia.png) | Diagrama de estructura del sistema único de agentes sobre el monorepo FinanzIA (también disponible en [`.svg`](diagramas/01-estructura-agentes-finanzia.svg)). |
-| [`diagramas/02-flujo-solicitud-finanzia.png`](diagramas/02-flujo-solicitud-finanzia.png) | Diagrama de flujo extremo a extremo con TDD estructural, puertas de calidad, bucles acotados a 2 vueltas y CI hacia `main` (también en [`.svg`](diagramas/02-flujo-solicitud-finanzia.svg)). |
+| [`Taller5_Grupo6_FinanzIA.pdf`](Taller5_Grupo6_FinanzIA.pdf) | **Documento de entrega para Q10** (5 páginas con tabla de agentes, diagramas, controles de calidad y diferencias con el sistema de referencia). |
+| [`docs/sistema-agentes-finanzia.md`](docs/sistema-agentes-finanzia.md) | Versión en Markdown de las cuatro secciones del documento. |
+| [`diagramas/01-estructura-agentes-finanzia.png`](diagramas/01-estructura-agentes-finanzia.png) | Diagrama de estructura del sistema único de agentes de FinanzIA (disponible también en [`.drawio`](diagramas/01-estructura-agentes-finanzia.drawio) y [`.svg`](diagramas/01-estructura-agentes-finanzia.svg)). |
+| [`diagramas/02-flujo-solicitud-finanzia.png`](diagramas/02-flujo-solicitud-finanzia.png) | Diagrama de flujo de una solicitud con ciclo Red → Green, controles de calidad, bucles de máximo 2 vueltas y paso a `main` (en [`.drawio`](diagramas/02-flujo-solicitud-finanzia.drawio) y [`.svg`](diagramas/02-flujo-solicitud-finanzia.svg)). |
 
 ---
 
